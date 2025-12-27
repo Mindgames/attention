@@ -1,10 +1,10 @@
 # Attention Please
 
-A Codex and Claude agent skill that pings and speaks when a run ends or needs input.
+A Codex and Claude Agent SKILL that pings and speaks when a run ends or needs input.
 
 ![Support](supported.png)
 
-Attention Please is an agent skill that boosts your productivity by telling you when a turn ends or when your input is required.
+Attention Please is an Agent SKILL that boosts your productivity by telling you when a turn ends or when your input is required.
 
 Compatible with macOS today. Windows and Linux are coming soon (contributions welcome).
 
@@ -38,7 +38,7 @@ Project install (only this repo), then restart Claude:
 git clone https://github.com/Mindgames/attention-please.git /path/to/your-repo/.claude/skills/attention-please
 ```
 
-## Instruct your agent
+## Instruct your Agent
 
 Tell your agent to run the skill at the end of each turn or when input/confirmation is needed:
 
