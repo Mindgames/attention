@@ -21,7 +21,7 @@ Built as a Codex skill and compatible with Claude Code / Claude CLI, but it work
 Clone into your Codex skills folder:
 
 ```bash
-git clone https://github.com/Mindgames/attention.git ~/.codex/skills/public/attention-please
+git clone https://github.com/Mindgames/attention-please.git ~/.codex/skills/public/attention-please
 ```
 
 Run it directly from that location:
@@ -35,7 +35,7 @@ Run it directly from that location:
 Clone into your Claude skills folder:
 
 ```bash
-git clone https://github.com/Mindgames/attention.git ~/.claude/skills/attention-please
+git clone https://github.com/Mindgames/attention-please.git ~/.claude/skills/attention-please
 ```
 
 Restart Claude Code/CLI so it loads the skill.
@@ -45,7 +45,7 @@ Restart Claude Code/CLI so it loads the skill.
 Use a submodule to keep updates clean:
 
 ```bash
-git submodule add https://github.com/Mindgames/attention.git tools/attention-please
+git submodule add https://github.com/Mindgames/attention-please.git tools/attention-please
 git submodule update --init --recursive
 ```
 
@@ -58,7 +58,7 @@ tools/attention-please/scripts/attention-please.sh
 If you want Claude Code/CLI to load it as a project skill, add a second checkout under `.claude/skills/`:
 
 ```bash
-git submodule add https://github.com/Mindgames/attention.git .claude/skills/attention-please
+git submodule add https://github.com/Mindgames/attention-please.git .claude/skills/attention-please
 ```
 
 Restart Claude Code/CLI so it picks up the project skill.
