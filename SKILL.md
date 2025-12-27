@@ -18,6 +18,7 @@ Play a short audible alert and a spoken prompt indicating which project needs at
 ### Project name resolution
 
 - Primary: `git remote get-url origin` and extract the repo name.
+- Remote override: set `ATTENTION_PING_REMOTE`.
 - Fallback: repo folder name.
 - Override: set `ATTENTION_PING_PROJECT`.
 
@@ -25,10 +26,18 @@ Play a short audible alert and a spoken prompt indicating which project needs at
 
 - Sound: macOS `afplay` with `/System/Library/Sounds/Ping.aiff` by default.
 - Override sound: set `ATTENTION_PING_SOUND`.
+- Disable sound: set `ATTENTION_PING_NO_SOUND=1`.
 - Speech: macOS `say`; if unavailable, the message prints to stdout.
+- Disable speech: set `ATTENTION_PING_NO_SAY=1`.
+- Voice: set `ATTENTION_PING_SAY_VOICE`.
+- Rate: set `ATTENTION_PING_SAY_RATE`.
+
+### Message override
+
+- Override the full phrase with `ATTENTION_PING_MESSAGE`.
 
 ## Example
 
 ```bash
-ATTENTION_PING_PROJECT="quiz-juice" scripts/attention-ping.sh
+ATTENTION_PING_PROJECT="quiz-juice" ATTENTION_PING_SAY_VOICE="Samantha" scripts/attention-ping.sh
 ```
