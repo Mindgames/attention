@@ -1,4 +1,4 @@
-# attention-please
+# Attention-please SKILL
 
 Codex & Claude SKILL that notifies you when your attention is needed.
 
