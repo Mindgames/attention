@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping improve attention-ping!
+Thanks for helping improve attention-please!
 
 ## Guidelines
 
@@ -13,8 +13,8 @@ Thanks for helping improve attention-ping!
 
 ## Development
 
-- Bash syntax check: `bash -n scripts/attention-ping.sh`
-- Manual verification: run `scripts/attention-ping.sh` inside a repo and confirm sound, speech, and fallback behavior.
+- Bash syntax check: `bash -n scripts/attention-please.sh`
+- Manual verification: run `scripts/attention-please.sh` inside a repo and confirm sound, speech, and fallback behavior.
 
 ## Pull Requests
 

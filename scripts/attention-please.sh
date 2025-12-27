@@ -3,20 +3,20 @@ set -euo pipefail
 
 usage() {
   cat <<'EOF'
-Usage: scripts/attention-ping.sh
+Usage: scripts/attention-please.sh
 
 Plays a sound and speaks "Project NAME needs your attention."
 
 Environment variables:
-  ATTENTION_PING_PROJECT   Override project name.
-  ATTENTION_PING_REMOTE    Git remote to derive name from (default: origin).
-  ATTENTION_PING_MESSAGE   Full message override.
-  ATTENTION_PING_SOUND     Sound file path (default: /System/Library/Sounds/Ping.aiff).
-  ATTENTION_PING_NO_SOUND  Disable sound when set to 1/true/yes/on.
-  ATTENTION_PING_NO_SAY    Disable speech when set to 1/true/yes/on.
-  ATTENTION_PING_SAY_VOICE Voice for say (e.g., "Samantha").
-  ATTENTION_PING_SAY_RATE  Rate for say (words per minute).
-  ATTENTION_PING_VERBOSE   Emit warnings when set to 1/true/yes/on.
+  ATTENTION_PLEASE_PROJECT   Override project name.
+  ATTENTION_PLEASE_REMOTE    Git remote to derive name from (default: origin).
+  ATTENTION_PLEASE_MESSAGE   Full message override.
+  ATTENTION_PLEASE_SOUND     Sound file path (default: /System/Library/Sounds/Ping.aiff).
+  ATTENTION_PLEASE_NO_SOUND  Disable sound when set to 1/true/yes/on.
+  ATTENTION_PLEASE_NO_SAY    Disable speech when set to 1/true/yes/on.
+  ATTENTION_PLEASE_SAY_VOICE Voice for say (e.g., "Samantha").
+  ATTENTION_PLEASE_SAY_RATE  Rate for say (words per minute).
+  ATTENTION_PLEASE_VERBOSE   Emit warnings when set to 1/true/yes/on.
 EOF
 }
 
@@ -27,15 +27,15 @@ is_truthy() {
   esac
 }
 
-project_name="${ATTENTION_PING_PROJECT:-}"
-sound_path="${ATTENTION_PING_SOUND:-/System/Library/Sounds/Ping.aiff}"
-remote_name="${ATTENTION_PING_REMOTE:-origin}"
-message_override="${ATTENTION_PING_MESSAGE:-}"
-say_voice="${ATTENTION_PING_SAY_VOICE:-}"
-say_rate="${ATTENTION_PING_SAY_RATE:-}"
-no_sound="${ATTENTION_PING_NO_SOUND:-}"
-no_say="${ATTENTION_PING_NO_SAY:-}"
-verbose="${ATTENTION_PING_VERBOSE:-}"
+project_name="${ATTENTION_PLEASE_PROJECT:-}"
+sound_path="${ATTENTION_PLEASE_SOUND:-/System/Library/Sounds/Ping.aiff}"
+remote_name="${ATTENTION_PLEASE_REMOTE:-origin}"
+message_override="${ATTENTION_PLEASE_MESSAGE:-}"
+say_voice="${ATTENTION_PLEASE_SAY_VOICE:-}"
+say_rate="${ATTENTION_PLEASE_SAY_RATE:-}"
+no_sound="${ATTENTION_PLEASE_NO_SOUND:-}"
+no_say="${ATTENTION_PLEASE_NO_SAY:-}"
+verbose="${ATTENTION_PLEASE_VERBOSE:-}"
 
 if [ "${1:-}" = "-h" ] || [ "${1:-}" = "--help" ]; then
   usage
@@ -44,7 +44,7 @@ fi
 
 warn() {
   if is_truthy "$verbose"; then
-    printf '%s\n' "attention-ping: $*" >&2
+    printf '%s\n' "attention-please: $*" >&2
   fi
 }
 
