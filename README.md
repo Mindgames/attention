@@ -6,7 +6,7 @@ A Codex and Claude Agent SKILL that notifies you when your attention is needed.
 
 Attention Please is an Agent SKILL that boosts your productivity by telling you when a turn ends or when your input is required.
 
-Compatible with macOS today. Windows and Linux are coming soon (contributions welcome).
+Compatible with macOS today. Windows and Linux are coming soon.
 
 ## Install
 
