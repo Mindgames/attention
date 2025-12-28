@@ -113,7 +113,11 @@ else
     if [ -n "$say_rate" ]; then
       say_args+=("-r" "$say_rate")
     fi
-    say "${say_args[@]}" "$message"
+    if [ "${#say_args[@]}" -gt 0 ]; then
+      say "${say_args[@]}" "$message"
+    else
+      say "$message"
+    fi
   else
     warn "say not available; printing message."
     printf '%s\n' "$message"
