@@ -12,30 +12,30 @@ Compatible with macOS today. Windows and Linux are coming soon.
 
 ### Codex
 
-Global install (available in all projects), then restart Codex:
+Install or refresh globally (recommended):
 
 ```bash
-git clone https://github.com/Mindgames/attention-please.git ~/.codex/skills/public/attention-please
+npx skills add Mindgames/attention-please -g -y
 ```
 
-Project install (only this repo), then restart Codex:
+Project install (current repo only):
 
 ```bash
-git clone https://github.com/Mindgames/attention-please.git /path/to/your-repo/.codex/skills/attention-please
+npx skills add Mindgames/attention-please
 ```
 
 ### Claude Code / Claude CLI
 
-Global install (available in all projects), then restart Claude:
+Install or refresh globally:
 
 ```bash
-git clone https://github.com/Mindgames/attention-please.git ~/.claude/skills/attention-please
+npx skills add Mindgames/attention-please -g -y
 ```
 
-Project install (only this repo), then restart Claude:
+Project install (current repo only):
 
 ```bash
-git clone https://github.com/Mindgames/attention-please.git /path/to/your-repo/.claude/skills/attention-please
+npx skills add Mindgames/attention-please
 ```
 
 ## Instruct your Agent
