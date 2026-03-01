@@ -46,17 +46,13 @@ After reinstall, restart your agent client if needed so it reloads skills.
 ## Workflow
 
 1. Run from inside the target repo so the script can read the git remote.
-2. Execute the installed script (prefer `.agents` path):
+2. Execute the installed script using the absolute path from the active session skill list:
 
    ```bash
-   ~/.agents/skills/attention-please/scripts/attention-please.sh
+   /absolute/path/to/attention-please/scripts/attention-please.sh
    ```
 
-   Fallback if still installed in `.codex`:
-
-   ```bash
-   ~/.codex/skills/public/attention-please/scripts/attention-please.sh
-   ```
+   If your environment does not expose the session skill path directly, use the actual install location used in that session (for example under `~/.agents/...` or `~/.codex/...`) as that absolute path.
 
 3. Run this immediately before sending your final response to the user.
 4. Continue with your response to the user.
@@ -86,5 +82,5 @@ After reinstall, restart your agent client if needed so it reloads skills.
 ## Example
 
 ```bash
-ATTENTION_PLEASE_PROJECT="project-name" ATTENTION_PLEASE_SAY_VOICE="Samantha" ~/.agents/skills/attention-please/scripts/attention-please.sh
+ATTENTION_PLEASE_PROJECT="project-name" ATTENTION_PLEASE_SAY_VOICE="Samantha" /absolute/path/to/attention-please/scripts/attention-please.sh
 ```
