@@ -93,7 +93,11 @@ fi
 if ! is_truthy "$no_sound"; then
   if command -v afplay >/dev/null 2>&1; then
     if [ -f "$sound_path" ]; then
-      afplay "$sound_path" &
+      if is_truthy "$verbose"; then
+        afplay "$sound_path" &
+      else
+        afplay "$sound_path" >/dev/null 2>&1 &
+      fi
     else
       warn "Sound file not found: ${sound_path}"
     fi
@@ -106,14 +110,25 @@ if is_truthy "$no_say"; then
   printf '%s\n' "$message"
 else
   if command -v say >/dev/null 2>&1; then
-    if [ -n "$say_voice" ] && [ -n "$say_rate" ]; then
-      say -v "$say_voice" -r "$say_rate" "$message"
-    elif [ -n "$say_voice" ]; then
-      say -v "$say_voice" "$message"
-    elif [ -n "$say_rate" ]; then
-      say -r "$say_rate" "$message"
+    say_args=()
+    if [ -n "$say_voice" ]; then
+      say_args+=(-v "$say_voice")
+    fi
+    if [ -n "$say_rate" ]; then
+      say_args+=(-r "$say_rate")
+    fi
+    say_args+=("$message")
+
+    say_failed=0
+    if is_truthy "$verbose"; then
+      say "${say_args[@]}" || say_failed=1
     else
-      say "$message"
+      say "${say_args[@]}" >/dev/null 2>&1 || say_failed=1
+    fi
+
+    if [ "$say_failed" -ne 0 ]; then
+      warn "say failed; printing message."
+      printf '%s\n' "$message"
     fi
   else
     warn "say not available; printing message."
