@@ -10,32 +10,16 @@ Compatible with macOS today. Windows and Linux are coming soon.
 
 ## Install (skills.sh)
 
-This skill uses the same `npx skills add` command across Codex, Claude, and other agentic CLI/IDE clients. Omit `--agent` when using the default install target for your environment.
-
-```bash
-npx skills add Mindgames/attention-please -g -y
-```
-
-Project-scoped (current repo only):
+Install via `skills.sh`:
 
 ```bash
 npx skills add Mindgames/attention-please
 ```
 
-Install for one or more agents when needed:
+Global install:
 
 ```bash
-npx skills add Mindgames/attention-please --agent codex
-```
-
-```bash
-npx skills add Mindgames/attention-please --agent claude-code
-```
-
-Install for both clients when needed:
-
-```bash
-npx skills add Mindgames/attention-please --agent codex claude-code -g -y
+npx skills add Mindgames/attention-please -g -y
 ```
 
 ## Instruct your Agent
