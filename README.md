@@ -41,6 +41,8 @@ WAV clip (not in repository code):
 
 Download: [Project john doe needs your attention](https://github.com/Mindgames/attention-please/releases/download/audio-sample-john-doe-20260302/attention-please-john-doe.wav)
 
+If your GitHub view blocks inline playback, use the download link and open the file locally.
+
 Issue with the hosted clip: [#5](https://github.com/Mindgames/attention-please/issues/5)
 
 ---
