@@ -30,6 +30,12 @@ Tell your agent to run the skill at the end of each turn or when input/confirmat
 $attention-please update AGENTS.md to run the attention-please skill at the end of each turn or when input/confirmation is needed.
 ```
 
+## Audio sample
+
+WAV clip (not in repository code): [Project john doe needs your attention](https://github.com/Mindgames/attention-please/releases/download/audio-sample-john-doe-20260302/attention-please-john-doe.wav)
+
+Issue with the hosted clip: [#5](https://github.com/Mindgames/attention-please/issues/5)
+
 ---
 
 Follow me on X: https://x.com/mathiiias123
