@@ -21,13 +21,25 @@ Play a short audible alert and a spoken prompt indicating which project needs at
 Install globally (recommended):
 
 ```bash
-npx skills add Mindgames/attention-please -g -y
+npx skills add Mindgames/attention-please --agent codex -g -y
 ```
 
-Install interactively:
+Install for a specific agent scope:
 
 ```bash
-npx skills add Mindgames/attention-please
+npx skills add Mindgames/attention-please --agent claude-code
+```
+
+Install this skill for both Codex and Claude Code:
+
+```bash
+npx skills add Mindgames/attention-please --agent codex claude-code
+```
+
+Use project scope (default behavior) when you need it in one repo only:
+
+```bash
+npx skills add Mindgames/attention-please --agent codex --agent claude-code
 ```
 
 After reinstall, restart your agent client if needed so it reloads skills.

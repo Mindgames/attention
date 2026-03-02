@@ -15,13 +15,13 @@ Compatible with macOS today. Windows and Linux are coming soon.
 Install or refresh globally (recommended):
 
 ```bash
-npx skills add Mindgames/attention-please -g -y
+npx skills add Mindgames/attention-please --agent codex -g -y
 ```
 
-Project install (current repo only):
+Project-scoped install (current repo only):
 
 ```bash
-npx skills add Mindgames/attention-please
+npx skills add Mindgames/attention-please --agent codex
 ```
 
 ### Claude Code / Claude CLI
@@ -29,13 +29,19 @@ npx skills add Mindgames/attention-please
 Install or refresh globally:
 
 ```bash
-npx skills add Mindgames/attention-please -g -y
+npx skills add Mindgames/attention-please --agent claude-code -g -y
 ```
 
-Project install (current repo only):
+Project-scoped install (current repo only):
 
 ```bash
-npx skills add Mindgames/attention-please
+npx skills add Mindgames/attention-please --agent claude-code
+```
+
+Install for both clients when needed:
+
+```bash
+npx skills add Mindgames/attention-please --agent codex claude-code -g -y
 ```
 
 ## Instruct your Agent

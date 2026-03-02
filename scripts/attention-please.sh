@@ -21,8 +21,8 @@ EOF
 }
 
 is_truthy() {
-  case "${1:-}" in
-    1|true|TRUE|yes|YES|on|ON) return 0 ;;
+  case "$(printf '%s' "${1:-}" | tr '[:upper:]' '[:lower:]')" in
+    1|true|yes|on|y) return 0 ;;
     *) return 1 ;;
   esac
 }
@@ -111,11 +111,15 @@ if is_truthy "$no_say"; then
 else
   if command -v say >/dev/null 2>&1; then
     say_args=()
+    if [ -n "$say_rate" ]; then
+      if [[ "$say_rate" =~ ^[0-9]+$ ]]; then
+        say_args+=(-r "$say_rate")
+      else
+        warn "Invalid ATTENTION_PLEASE_SAY_RATE='${say_rate}', expected digits."
+      fi
+    fi
     if [ -n "$say_voice" ]; then
       say_args+=(-v "$say_voice")
-    fi
-    if [ -n "$say_rate" ]; then
-      say_args+=(-r "$say_rate")
     fi
     say_args+=("$message")
 
