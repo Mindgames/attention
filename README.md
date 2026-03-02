@@ -31,6 +31,23 @@ This repo keeps tools that use the OpenAI Agents SDK. The `research_bot` project
   - Saves a lightweight transcript per day under `operator/sessions/`.
   - Detects future events in your messages and offers to set reminders; reminders are stored in `operator/reminders.jsonl` and surfaced when due.
 
+## Social Posting Routine
+
+Use the social tracking CLI to log posts, capture metrics, and review performance trends.
+
+- Log a new post right after publishing:
+  - `python -m operator.social_posts log --platform linkedin --medium post --url "..." --topic "agentic ai" --hook "The dirty reality of agentic AI:"`
+- List recent logged posts and IDs:
+  - `python -m operator.social_posts list --platform linkedin --days 30`
+- Check which posts need metrics updates:
+  - `python -m operator.social_posts checkup --platform linkedin`
+- Record a metrics snapshot for a post:
+  - `python -m operator.social_posts metrics --post-id <id> --impressions 0 --likes 0 --comments 0 --reposts 0`
+- Weekly learning review (best hooks, mediums, windows):
+  - `python -m operator.social_posts review --platform linkedin --days 30`
+- Print the full operating routine:
+  - `python -m operator.social_posts routine`
+
 ## Add a New Project
 
 1. Create a folder: `projects/<your-project-name>/`

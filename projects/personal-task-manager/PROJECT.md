@@ -2,7 +2,7 @@
 title: Personal Task Manager (Codex-Driven)
 status: In Progress
 owner: Mathias Asberg
-updated: 2025-12-26
+updated: 2026-02-26
 north_star_metric: Daily top-3 completion rate (%)
 roi_window: 4 weeks
 weekly_time_budget_hours: 10
@@ -54,6 +54,26 @@ A Codex-driven personal task manager that keeps a single source of truth for tas
 - Rolling plan: generate the next 2-3 blocks, then re-plan based on progress.
 - Fixed break length: 15 minutes between 90-minute focus blocks.
 - Blocks per check-in: 2 rolling focus blocks.
+
+## Social Intelligence Loop
+
+- Purpose: track social output and convert outcomes into reusable posting patterns across LinkedIn, X, and Instagram.
+- Canonical store: `operator/social_posts.jsonl` using `operator/social_posts_schema.md`.
+- Canonical capture path:  
+  1) `python -m operator.social_posts idea`  
+  2) `python -m operator.social_posts log`  
+  3) `python -m operator.social_posts metrics` (at +24h and +72h when possible)  
+  4) `python -m operator.social_posts audit` for quality checks  
+  5) `python -m operator.social_posts review` for weekly pattern extraction
+- Data to capture per idea: topic, hook candidate, source type, hypothesis, tags, target audience, references.
+- Data to capture per post: linked idea id, medium, hook, campaign, creation path, origin trace, url, metrics.
+- Pattern extraction outputs: topic lift, hook ranking, best time windows, recurring pattern reports, top hypotheses.
+- Review cadence: daily checkup + weekly in-depth review.
+- Target throughput: 1 post/day.
+- Research prep artifact: `operator/social_posts_research_plan.md`.
+- Drafting/research and post-performance capture can use `grais-tab-webdata-reader` (`/Users/mathiasasberg/.codex/skills/private/grais-tab-webdata-reader/SKILL.md`) for manual extraction.
+- Daily automation entrypoint: `.codex/skills/private/social-intelligence-loop` with run command:
+  - `python3 .codex/skills/private/social-intelligence-loop/scripts/social_intelligence_daily.py --mode full`.
 
 ## Task Data Rules
 
