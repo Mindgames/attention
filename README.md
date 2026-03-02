@@ -34,14 +34,15 @@ $attention-please update AGENTS.md to run the attention-please skill at the end 
 
 WAV clip (not in repository code):
 
-<audio controls>
-  <source src="https://github.com/Mindgames/attention-please/releases/download/audio-sample-john-doe-20260302/attention-please-john-doe.wav" type="audio/wav">
-  Your browser does not support the audio element.
-</audio>
+<video controls width="320" preload="none">
+  <source src="https://github.com/Mindgames/attention-please/releases/download/audio-sample-john-doe-20260302/attention-please-john-doe.mp4" type="video/mp4">
+  Your browser does not support the media player.
+</video>
 
-Download: [Project john doe needs your attention](https://github.com/Mindgames/attention-please/releases/download/audio-sample-john-doe-20260302/attention-please-john-doe.wav)
+If inline playback is blocked, use one of these files:
 
-If your GitHub view blocks inline playback, use the download link and open the file locally.
+- MP4 player fallback: [Project john doe needs your attention](https://github.com/Mindgames/attention-please/releases/download/audio-sample-john-doe-20260302/attention-please-john-doe.mp4)
+- WAV original: [Project john doe needs your attention](https://github.com/Mindgames/attention-please/releases/download/audio-sample-john-doe-20260302/attention-please-john-doe.wav)
 
 Issue with the hosted clip: [#5](https://github.com/Mindgames/attention-please/issues/5)
 
