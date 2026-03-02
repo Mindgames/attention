@@ -18,16 +18,34 @@ Play a short audible alert and a spoken prompt indicating which project needs at
 
 ## Install Or Refresh
 
+This repository uses `skills.sh` as the primary install path for Codex, Claude, and most agentic CLI/IDE clients.
+
 Install globally (recommended):
 
 ```bash
 npx skills add Mindgames/attention-please -g -y
 ```
 
-Install interactively:
+Project scope (default):
 
 ```bash
 npx skills add Mindgames/attention-please
+```
+
+Target specific agents (optional):
+
+```bash
+npx skills add Mindgames/attention-please --agent codex
+```
+
+```bash
+npx skills add Mindgames/attention-please --agent claude-code
+```
+
+Install for multiple agents in one command:
+
+```bash
+npx skills add Mindgames/attention-please --agent codex claude-code -g -y
 ```
 
 After reinstall, restart your agent client if needed so it reloads skills.

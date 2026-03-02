@@ -8,34 +8,34 @@ Attention Please is an Agent SKILL that boosts your productivity by telling you 
 
 Compatible with macOS today. Windows and Linux are coming soon.
 
-## Install
+## Install (skills.sh)
 
-### Codex
-
-Install or refresh globally (recommended):
+This skill uses the same `npx skills add` command across Codex, Claude, and other agentic CLI/IDE clients. Omit `--agent` when using the default install target for your environment.
 
 ```bash
 npx skills add Mindgames/attention-please -g -y
 ```
 
-Project install (current repo only):
+Project-scoped (current repo only):
 
 ```bash
 npx skills add Mindgames/attention-please
 ```
 
-### Claude Code / Claude CLI
-
-Install or refresh globally:
+Install for one or more agents when needed:
 
 ```bash
-npx skills add Mindgames/attention-please -g -y
+npx skills add Mindgames/attention-please --agent codex
 ```
 
-Project install (current repo only):
+```bash
+npx skills add Mindgames/attention-please --agent claude-code
+```
+
+Install for both clients when needed:
 
 ```bash
-npx skills add Mindgames/attention-please
+npx skills add Mindgames/attention-please --agent codex claude-code -g -y
 ```
 
 ## Instruct your Agent
