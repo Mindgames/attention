@@ -30,6 +30,21 @@ Tell your agent to run the skill at the end of each turn or when input/confirmat
 $attention-please update AGENTS.md to run the attention-please skill at the end of each turn or when input/confirmation is needed.
 ```
 
+## Toggle the alert sound
+
+The short `afplay` alert can be muted or re-enabled persistently:
+
+```bash
+scripts/attention-please.sh --sound off
+scripts/attention-please.sh --sound on
+scripts/attention-please.sh --sound toggle
+scripts/attention-please.sh --sound status
+```
+
+This controls only the alert sound. Speech remains controlled separately with `ATTENTION_PLEASE_NO_SAY=1`.
+
+By default the preference is stored in `${XDG_CONFIG_HOME:-~/.config}/attention-please/config`. Override the path with `ATTENTION_PLEASE_CONFIG_FILE`.
+
 ## Audio sample
 
 MP4 clip (not embedded in repository code):

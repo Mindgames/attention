@@ -1,18 +1,23 @@
 ---
 name: attention-please
-description: Play an alert sound and speak "Project NAME needs your attention." Always use at the end of every response or whenever Codex needs user input or confirmation; derive the project name from the git remote (origin) with fallback to the repo folder or an override.
+description: Play an alert sound and speak "Project NAME needs your attention." Use only when the user explicitly asks for an alert, a long-running task blocks on human input, or a background process finishes and needs attention.
 ---
 
 # Attention Please
 
 ## Overview
 
-Play a short audible alert and a spoken prompt indicating which project needs attention. Use this as the final step after completing work on every response, and also right before asking the user for input.
+Play a short audible alert and a spoken prompt indicating which project needs attention.
+
+Use this only when:
+- the user explicitly asks for an audible alert
+- a long-running task blocks on human input or confirmation
+- a background process finishes and the user should be brought back to the thread
 
 ## Source Of Truth And Publishing
 
 - GitHub repository: `https://github.com/Mindgames/attention-please`
-- Local development repository: `~/Projects/skills/attention-please`
+- Local development repository: `~/Projects/attention-please`
 - Do not edit installed copies in `~/.agents/skills/...` or `~/.codex/skills/...` directly.
 - Update this repository, push to GitHub, open a PR, then reinstall via `skills`.
 
@@ -55,11 +60,11 @@ After reinstall, restart your agent client if needed so it reloads skills.
 - Always open this skill using the absolute path from the active session skills list.
 - Do not guess repo-relative `.codex/skills/...` paths unless that exact path was listed by the session.
 
-## Rules (non-negotiable)
+## Rules
 
-- Always run this script at the end of every response, even if you are not asking for input.
-- If you missed it in the previous turn, run it immediately at the start of the next turn before doing anything else, then continue.
-- Treat a missed run as a bug; prioritize correcting it as soon as you notice.
+- Do not run this script at the end of ordinary responses.
+- Do not run this script at the start of a later turn to compensate for a previous non-run.
+- When used, run it immediately before asking for input or reporting the completed background result.
 
 ## Workflow
 
@@ -72,7 +77,7 @@ After reinstall, restart your agent client if needed so it reloads skills.
 
    If your environment does not expose the session skill path directly, use the actual install location used in that session (for example under `~/.agents/...` or `~/.codex/...`) as that absolute path.
 
-3. Run this immediately before sending your final response to the user.
+3. Run this immediately before the attention-worthy user prompt or completion notice.
 4. Continue with your response to the user.
 
 ### Project name resolution
@@ -87,6 +92,11 @@ After reinstall, restart your agent client if needed so it reloads skills.
 - Sound: macOS `afplay` with `/System/Library/Sounds/Ping.aiff` by default.
 - Override sound: set `ATTENTION_PLEASE_SOUND`.
 - Disable sound: set `ATTENTION_PLEASE_NO_SOUND=1`.
+- Persistently disable sound: run `/absolute/path/to/attention-please/scripts/attention-please.sh --sound off`.
+- Persistently enable sound: run `/absolute/path/to/attention-please/scripts/attention-please.sh --sound on`.
+- Toggle persisted sound: run `/absolute/path/to/attention-please/scripts/attention-please.sh --sound toggle`.
+- Check persisted sound: run `/absolute/path/to/attention-please/scripts/attention-please.sh --sound status`.
+- Sound preference is stored in `${XDG_CONFIG_HOME:-~/.config}/attention-please/config`; override with `ATTENTION_PLEASE_CONFIG_FILE`.
 - Speech: macOS `say`; if unavailable, the message prints to stdout.
 - Disable speech: set `ATTENTION_PLEASE_NO_SAY=1`.
 - Voice: set `ATTENTION_PLEASE_SAY_VOICE`.
@@ -101,4 +111,8 @@ After reinstall, restart your agent client if needed so it reloads skills.
 
 ```bash
 ATTENTION_PLEASE_PROJECT="project-name" ATTENTION_PLEASE_SAY_VOICE="Samantha" /absolute/path/to/attention-please/scripts/attention-please.sh
+```
+
+```bash
+/absolute/path/to/attention-please/scripts/attention-please.sh --sound toggle
 ```
